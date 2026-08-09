@@ -3,4 +3,5 @@ numpy
 pandas
 openpyxl
 scikit-learn
-matplotlib
+scikit-image
+mediapipe==0.10.14
