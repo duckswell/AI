@@ -15,15 +15,47 @@
 
 붉은기 / 요철 / 잡티 3개 지표를 사진에서 퍼센트로 산출하는 분석 로직.
 
+---
+
+## 🛠 기술 스택
+
+<div align="center">
+
+**Development**
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![VS Code](https://img.shields.io/badge/VS%20Code-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white)
+![Kaggle](https://img.shields.io/badge/Kaggle-20BEFF?style=for-the-badge&logo=kaggle&logoColor=white)
+
+**Image Processing**
+
+![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)
+![MediaPipe](https://img.shields.io/badge/MediaPipe-0097A7?style=for-the-badge&logo=mediapipe&logoColor=white)
+
+**Data / ML**
+
+![pandas](https://img.shields.io/badge/pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white)
+
+</div>
+
+---
+
+## 🧪 최종 모델
+
+| 지표 | 방식 |
+|:---:|---|
+| 붉은기 | 원시 특징값 → 기준 분포 백분위 변환 |
+| 잡티 | 원시 특징값 → 선형회귀(스팟 개수 예측) → 백분위 변환 |
+| 요철 | 원시 특징값 3종 → 선형회귀(모공 개수 예측) → 백분위 변환 |
+
+---
+
 ## 구조
 
-- `dataset/` - 학습/검증용 이미지 및 라벨 (gitignore)
+- `dataset/` - 학습/검증용 이미지 및 라벨 (gitignore, 출처는 `dataset/README.md` 참고)
 - `src/features/` - 사진에서 원시 특징값을 계산하는 이미지 처리 로직
-- `src/train/` - 원시 특징값을 사람이 매긴 라벨에 맞춰 보정하는 회귀 모델 학습 스크립트
-- `src/export/` - 학습된 보정 계수를 백엔드에서 쓸 수 있는 형태로 내보내는 스크립트
-
-## 접근 방식
-
-1. 이미지 처리로 각 지표의 원시 수치 계산
-2. 소규모 라벨 데이터로 원시 수치 → 사람이 느끼는 정도(0~100%) 보정 모델 학습
-3. 보정 계수를 백엔드(springboot)에 임베드
+- `scripts/` - 데이터 정리(`build_processed_datasets.py`)부터 보정 모델 학습(`train_calibration_models.py`), export(`export_models.py`)까지의 실행 스크립트
+- `models_export.json` - 최종 계수/기준 분포 (백엔드에서 로드할 파일)
+- 자세한 개발 기록은 `notes/PROGRESS.md` (gitignore, 로컬 전용)
