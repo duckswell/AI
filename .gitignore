@@ -6,3 +6,5 @@ venv/
 *.egg-info/
 .ipynb_checkpoints/
 .DS_Store
+scripts/_debug_out/
+notes/
