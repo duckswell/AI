@@ -1,10 +1,11 @@
 <div align="center">
-  <strong>(대표 이미지 첨부 예정)</strong>
+  <strong><img width="1920" height="1080" alt="중커톤 표지" src="https://github.com/user-attachments/assets/cd6d15f6-e577-458e-9b7d-8f580343eef2" />
+</strong>
 </div>
 
 ---
 
-## 🧴 [이름 예정] 프로젝트 개요
+## 🧴 HALE 프로젝트 개요
 
 ### 서비스 소개
 시술 후 피부 회복을 돕는 AI 스킨케어 코칭 앱
